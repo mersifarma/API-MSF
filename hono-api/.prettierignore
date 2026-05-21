@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+drizzle
+docker
+bun.lock
+.env
+.env.*
+*.md

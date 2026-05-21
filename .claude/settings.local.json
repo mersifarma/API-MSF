@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bunx tsc *)",
+      "Bash(findstr /R \"eslint prettier\")",
+      "Bash(bun add *)",
+      "Bash(bunx eslint *)",
+      "Bash(bunx prettier *)",
+      "Bash(Get-ChildItem -Path \"d:\\\\API-MSF\\\\hono-api\\\\\" -Force | Select-Object Name, PSIsContainer)",
+      "Bash(bun test *)",
+      "Bash(docker exec *)",
+      "Bash(cd /d/API-MSF/hono-api && find . -maxdepth 2 -name \".env*\" -o -name \"*.test.ts\" -o -name \"*.spec.ts\" | head -10)",
+      "Read(//d/d/API-MSF/**)",
+      "Bash(cat 'd:\\\\API-MSF\\\\hono-api\\\\.env.test' 2>nul || echo \"FILE NOT FOUND\")",
+      "Bash(psql -h localhost -U msf -lA)",
+      "Bash(findstr msf_test)",
+      "Bash(bun -e \"const postgres = \\(await import\\('postgres'\\)\\).default; const c = postgres\\('postgres://msf:msf@localhost:5432/postgres', { max: 1 }\\); const rows = await c\\\\`SELECT datname FROM pg_database WHERE datname LIKE 'msf%' ORDER BY datname\\\\`; console.log\\('DBs:', rows.map\\(r => r.datname\\)\\); await c.end\\(\\);\")"
+    ],
+    "additionalDirectories": [
+      "d:\\API-MSF"
+    ]
+  }
+}
