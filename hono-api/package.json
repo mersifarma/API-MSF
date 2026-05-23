@@ -13,6 +13,7 @@
     "db:studio": "drizzle-kit studio",
     "db:check": "drizzle-kit check",
     "db:seed": "bun run src/scripts/seed.ts",
+    "db:restore-legacy": "bun run src/scripts/restore-from-dump.ts",
     "db:reset": "drizzle-kit drop && drizzle-kit push && bun run db:seed",
     "test": "bun test",
     "test:watch": "bun test --watch",
@@ -22,9 +23,12 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,json}\""
   },
   "dependencies": {
-    "hono": "^4.12.21",
+    "@aws-sdk/client-s3": "^3.1052.0",
+    "@aws-sdk/s3-request-presigner": "^3.1052.0",
     "@hono/zod-validator": "^0.8.0",
     "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.21",
+    "nanoid": "^5.1.11",
     "postgres": "^3.4.9",
     "zod": "^4.4.3"
   },

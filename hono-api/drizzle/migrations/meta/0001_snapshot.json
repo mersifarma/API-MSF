@@ -1,0 +1,3074 @@
+{
+  "id": "3286a5f2-ab75-4726-88ac-d2b93d960916",
+  "prevId": "58267a82-264e-4be3-9637-665d1c24057e",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.app_modul": {
+      "name": "app_modul",
+      "schema": "",
+      "columns": {
+        "id_modul": {
+          "name": "id_modul",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "app_modul_id_modul_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "nama_modul": {
+          "name": "nama_modul",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "icons": {
+          "name": "icons",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "icons2": {
+          "name": "icons2",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "app_modul_nama_unique": {
+          "name": "app_modul_nama_unique",
+          "columns": [
+            {
+              "expression": "nama_modul",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.app_role_menu": {
+      "name": "app_role_menu",
+      "schema": "",
+      "columns": {
+        "id_role": {
+          "name": "id_role",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "app_role_menu_id_role_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "id_menu": {
+          "name": "id_menu",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_modul": {
+          "name": "id_modul",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_user": {
+          "name": "id_user",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "app_role_menu_unique": {
+          "name": "app_role_menu_unique",
+          "columns": [
+            {
+              "expression": "id_menu",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id_modul",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id_user",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_setting": {
+      "name": "call_setting",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "call_setting_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "user": {
+          "name": "user",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama": {
+          "name": "nama",
+          "type": "varchar(75)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bulan": {
+          "name": "bulan",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "input_set": {
+          "name": "input_set",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jumlah": {
+          "name": "jumlah",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_date": {
+          "name": "created_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_date": {
+          "name": "updated_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_by": {
+          "name": "updated_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_target_class": {
+      "name": "call_target_class",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "call_target_class_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "jabatan": {
+          "name": "jabatan",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "class": {
+          "name": "class",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target": {
+          "name": "target",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "idx_call_target_class": {
+          "name": "idx_call_target_class",
+          "columns": [
+            {
+              "expression": "jabatan",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "class",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_target_hari": {
+      "name": "call_target_hari",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "call_target_hari_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "jabatan": {
+          "name": "jabatan",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dokter": {
+          "name": "dokter",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "non_dokter": {
+          "name": "non_dokter",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_awal": {
+          "name": "periode_awal",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_akhir": {
+          "name": "periode_akhir",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_target_list": {
+      "name": "call_target_list",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "call_target_list_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "jabatan": {
+          "name": "jabatan",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dokter": {
+          "name": "dokter",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "non_dokter": {
+          "name": "non_dokter",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_awal": {
+          "name": "periode_awal",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_akhir": {
+          "name": "periode_akhir",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_version": {
+      "name": "call_version",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "call_version_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "version": {
+          "name": "version",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_apk": {
+          "name": "link_apk",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.data_pegawai": {
+      "name": "data_pegawai",
+      "schema": "",
+      "columns": {
+        "rowid": {
+          "name": "rowid",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "data_pegawai_rowid_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nik": {
+          "name": "nik",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama": {
+          "name": "nama",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jabatan": {
+          "name": "jabatan",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rayon": {
+          "name": "rayon",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rayon_dm": {
+          "name": "rayon_dm",
+          "type": "varchar(150)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "name": "region",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "homebase": {
+          "name": "homebase",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lokasi": {
+          "name": "lokasi",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lokasi_absen": {
+          "name": "lokasi_absen",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telepon": {
+          "name": "telepon",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keterangan": {
+          "name": "keterangan",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_masuk": {
+          "name": "tgl_masuk",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_keluar": {
+          "name": "tgl_keluar",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tanda_tangan": {
+          "name": "tanda_tangan",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_finger": {
+          "name": "id_finger",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_user": {
+          "name": "id_user",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.data_product": {
+      "name": "data_product",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "data_product_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "id_product": {
+          "name": "id_product",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nama_product": {
+          "name": "nama_product",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "komposisi": {
+          "name": "komposisi",
+          "type": "varchar(400)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kemasan": {
+          "name": "kemasan",
+          "type": "varchar(70)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "isi_box": {
+          "name": "isi_box",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "group_product": {
+          "name": "group_product",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jenis_product": {
+          "name": "jenis_product",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "keterangan_harga": {
+          "name": "keterangan_harga",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class_terapi": {
+          "name": "class_terapi",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product_hj": {
+          "name": "product_hj",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sub_divisi": {
+          "name": "sub_divisi",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sub_divisi_sales": {
+          "name": "sub_divisi_sales",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "set_divisi": {
+          "name": "set_divisi",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga": {
+          "name": "harga",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "harga_jadi": {
+          "name": "harga_jadi",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_1": {
+          "name": "harga_reg_1",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_2": {
+          "name": "harga_reg_2",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_3": {
+          "name": "harga_reg_3",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_4": {
+          "name": "harga_reg_4",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_5": {
+          "name": "harga_reg_5",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_6": {
+          "name": "harga_reg_6",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "harga_reg_7": {
+          "name": "harga_reg_7",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "penyeragaman_product": {
+          "name": "penyeragaman_product",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "brand_product": {
+          "name": "brand_product",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product_fokus": {
+          "name": "product_fokus",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_awal": {
+          "name": "periode_awal",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_akhir": {
+          "name": "periode_akhir",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "attachment": {
+          "name": "attachment",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product_detail_link": {
+          "name": "product_detail_link",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_masa_berlaku": {
+          "name": "tgl_masa_berlaku",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_date": {
+          "name": "created_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_date": {
+          "name": "updated_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_by": {
+          "name": "updated_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "data_product_unique": {
+          "name": "data_product_unique",
+          "columns": [
+            {
+              "expression": "id_product",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "jenis_product",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "sub_divisi",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "divisi",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "periode_awal",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.data_spec_dr": {
+      "name": "data_spec_dr",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "data_spec_dr_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "spec": {
+          "name": "spec",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gelar": {
+          "name": "gelar",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keterangan": {
+          "name": "keterangan",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "data_spec_dr_unique": {
+          "name": "data_spec_dr_unique",
+          "columns": [
+            {
+              "expression": "spec",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.list_dokter_visit_new": {
+      "name": "list_dokter_visit_new",
+      "schema": "",
+      "columns": {
+        "ID": {
+          "name": "ID",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "list_dokter_visit_new_ID_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "ID_PEG": {
+          "name": "ID_PEG",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ID_FF": {
+          "name": "ID_FF",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "NAMA_FF": {
+          "name": "NAMA_FF",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "RAYON": {
+          "name": "RAYON",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "DISTRIK": {
+          "name": "DISTRIK",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "REGION": {
+          "name": "REGION",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "DIVISI": {
+          "name": "DIVISI",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "SEGMEN_MD": {
+          "name": "SEGMEN_MD",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ID_MCL": {
+          "name": "ID_MCL",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ID_MD": {
+          "name": "ID_MD",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NAMA_DOKTER": {
+          "name": "NAMA_DOKTER",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "NAMA_NON_DOKTER": {
+          "name": "NAMA_NON_DOKTER",
+          "type": "varchar(150)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NO_STR": {
+          "name": "NO_STR",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "SPEC": {
+          "name": "SPEC",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "CLASS": {
+          "name": "CLASS",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "KODE_OUTLET_UNION": {
+          "name": "KODE_OUTLET_UNION",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "INSTITUSI": {
+          "name": "INSTITUSI",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "KOORDINAT_INSTITUSI": {
+          "name": "KOORDINAT_INSTITUSI",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WILAYAH": {
+          "name": "WILAYAH",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WILAYAH_DM": {
+          "name": "WILAYAH_DM",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WILAYAH_RSM": {
+          "name": "WILAYAH_RSM",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "HARI_PRAKTEK": {
+          "name": "HARI_PRAKTEK",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "JAM_MULAI_PRAKTEK": {
+          "name": "JAM_MULAI_PRAKTEK",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "JAM_SELESAI_PRAKTEK": {
+          "name": "JAM_SELESAI_PRAKTEK",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DURASI_PRAKTEK": {
+          "name": "DURASI_PRAKTEK",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ALAMAT_PRAKTEK": {
+          "name": "ALAMAT_PRAKTEK",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "KOTA": {
+          "name": "KOTA",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ALAMAT_RUMAH": {
+          "name": "ALAMAT_RUMAH",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "NO_TELP_DOKTER": {
+          "name": "NO_TELP_DOKTER",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "HUT": {
+          "name": "HUT",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "PROD_DETAILING_1": {
+          "name": "PROD_DETAILING_1",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_2": {
+          "name": "PROD_DETAILING_2",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_3": {
+          "name": "PROD_DETAILING_3",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_4": {
+          "name": "PROD_DETAILING_4",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_5": {
+          "name": "PROD_DETAILING_5",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_6": {
+          "name": "PROD_DETAILING_6",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_7": {
+          "name": "PROD_DETAILING_7",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_8": {
+          "name": "PROD_DETAILING_8",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_9": {
+          "name": "PROD_DETAILING_9",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PROD_DETAILING_10": {
+          "name": "PROD_DETAILING_10",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "STATUS_MD": {
+          "name": "STATUS_MD",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DIBERIKAN_RBP": {
+          "name": "DIBERIKAN_RBP",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "JENIS_RBP": {
+          "name": "JENIS_RBP",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "KETERANGAN": {
+          "name": "KETERANGAN",
+          "type": "varchar(150)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CREATED_DATE": {
+          "name": "CREATED_DATE",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CREATED_BY": {
+          "name": "CREATED_BY",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "UPDATED_DATE": {
+          "name": "UPDATED_DATE",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "UPDATED_BY": {
+          "name": "UPDATED_BY",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "check_dm": {
+          "name": "check_dm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "check_dm_date": {
+          "name": "check_dm_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "check_rsm": {
+          "name": "check_rsm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "check_rsm_date": {
+          "name": "check_rsm_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisi_dm": {
+          "name": "revisi_dm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comment_revisi_dm": {
+          "name": "comment_revisi_dm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revisi_rsm": {
+          "name": "revisi_rsm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comment_revisi_rsm": {
+          "name": "comment_revisi_rsm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "ldvn_id_peg_unique": {
+          "name": "ldvn_id_peg_unique",
+          "columns": [
+            {
+              "expression": "ID_PEG",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "ID_FF",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "DIVISI",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "ID_MCL",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "KODE_OUTLET_UNION",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.struktur": {
+      "name": "struktur",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "struktur_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "id_mr": {
+          "name": "id_mr",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_mr": {
+          "name": "id_peg_mr",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rayon_mr": {
+          "name": "rayon_mr",
+          "type": "varchar(220)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "golongan": {
+          "name": "golongan",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_dm": {
+          "name": "id_dm",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_dm": {
+          "name": "id_peg_dm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rayon_dm": {
+          "name": "rayon_dm",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_rsm": {
+          "name": "id_rsm",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_rsm": {
+          "name": "id_peg_rsm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "name": "region",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_som": {
+          "name": "id_som",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_som": {
+          "name": "id_peg_som",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_mm": {
+          "name": "id_mm",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_mm": {
+          "name": "id_peg_mm",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_dmd": {
+          "name": "id_dmd",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_dmd": {
+          "name": "id_peg_dmd",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_md": {
+          "name": "id_md",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_md": {
+          "name": "id_peg_md",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_vp": {
+          "name": "id_vp",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg_vp": {
+          "name": "id_peg_vp",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_adminda": {
+          "name": "id_adminda",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kantor_cabang": {
+          "name": "kantor_cabang",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "periode_awal": {
+          "name": "periode_awal",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "periode_akhir": {
+          "name": "periode_akhir",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_date": {
+          "name": "created_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_date": {
+          "name": "updated_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_by": {
+          "name": "updated_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "idx_struktur_periode": {
+          "name": "idx_struktur_periode",
+          "columns": [
+            {
+              "expression": "periode_akhir",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id_peg_mr",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigint",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "users_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "9223372036854775807",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "varchar(150)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email_verified_at": {
+          "name": "email_verified_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password_view": {
+          "name": "password_view",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "remember_token": {
+          "name": "remember_token",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "users_username_unique": {
+          "name": "users_username_unique",
+          "columns": [
+            {
+              "expression": "username",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_list": {
+      "name": "call_list",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "id_mcl": {
+          "name": "id_mcl",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "periode": {
+          "name": "periode",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_visited": {
+          "name": "is_visited",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "nama_dokter": {
+          "name": "nama_dokter",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "spec": {
+          "name": "spec",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "segmen": {
+          "name": "segmen",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "class": {
+          "name": "class",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "target_visit": {
+          "name": "target_visit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "wilayah": {
+          "name": "wilayah",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_peg": {
+          "name": "id_peg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_ff": {
+          "name": "id_ff",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "approval": {
+          "name": "approval",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_by": {
+          "name": "approval_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_date": {
+          "name": "approval_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_comment": {
+          "name": "approval_comment",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keterangan": {
+          "name": "keterangan",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "name": "note",
+          "type": "varchar(150)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_by": {
+          "name": "updated_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "call_list_idx": {
+          "name": "call_list_idx",
+          "columns": [
+            {
+              "expression": "id_mcl",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "periode",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id_ff",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "call_list_peg_periode_idx": {
+          "name": "call_list_peg_periode_idx",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "periode",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "call_list_approval_idx": {
+          "name": "call_list_approval_idx",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "periode",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "approval",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "call_list_id_mcl_list_dokter_visit_new_ID_fk": {
+          "name": "call_list_id_mcl_list_dokter_visit_new_ID_fk",
+          "tableFrom": "call_list",
+          "tableTo": "list_dokter_visit_new",
+          "columnsFrom": [
+            "id_mcl"
+          ],
+          "columnsTo": [
+            "ID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "call_list_id_peg_data_pegawai_rowid_fk": {
+          "name": "call_list_id_peg_data_pegawai_rowid_fk",
+          "tableFrom": "call_list",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "id_peg"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_list_history": {
+      "name": "call_list_history",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "call_list_id": {
+          "name": "call_list_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_peg": {
+          "name": "id_peg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type": {
+          "name": "action_type",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_date": {
+          "name": "action_date",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "old_id_mcl": {
+          "name": "old_id_mcl",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_id_mcl": {
+          "name": "new_id_mcl",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_nama_dokter": {
+          "name": "old_nama_dokter",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_nama_dokter": {
+          "name": "new_nama_dokter",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_spec": {
+          "name": "old_spec",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_spec": {
+          "name": "new_spec",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_class": {
+          "name": "old_class",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_class": {
+          "name": "new_class",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_segmen": {
+          "name": "old_segmen",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_segmen": {
+          "name": "new_segmen",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_wilayah": {
+          "name": "old_wilayah",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_wilayah": {
+          "name": "new_wilayah",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "old_target_visit": {
+          "name": "old_target_visit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_target_visit": {
+          "name": "new_target_visit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reason": {
+          "name": "reason",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ip_address": {
+          "name": "ip_address",
+          "type": "varchar(45)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_agent": {
+          "name": "user_agent",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "clh_call_list_idx": {
+          "name": "clh_call_list_idx",
+          "columns": [
+            {
+              "expression": "call_list_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "clh_peg_idx": {
+          "name": "clh_peg_idx",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "clh_date_idx": {
+          "name": "clh_date_idx",
+          "columns": [
+            {
+              "expression": "action_date",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "call_list_history_call_list_id_call_list_id_fk": {
+          "name": "call_list_history_call_list_id_call_list_id_fk",
+          "tableFrom": "call_list_history",
+          "tableTo": "call_list",
+          "columnsFrom": [
+            "call_list_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "call_list_history_id_peg_data_pegawai_rowid_fk": {
+          "name": "call_list_history_id_peg_data_pegawai_rowid_fk",
+          "tableFrom": "call_list_history",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "id_peg"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.call_plan_actual": {
+      "name": "call_plan_actual",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "id_peg": {
+          "name": "id_peg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_ff": {
+          "name": "id_ff",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nama_ff": {
+          "name": "nama_ff",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_mcl": {
+          "name": "id_mcl",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama_dokter": {
+          "name": "nama_dokter",
+          "type": "varchar(150)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "spec": {
+          "name": "spec",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "segmen_md": {
+          "name": "segmen_md",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class": {
+          "name": "class",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "institusi": {
+          "name": "institusi",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alamat_praktek": {
+          "name": "alamat_praktek",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koordinat_institusi": {
+          "name": "koordinat_institusi",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_plan": {
+          "name": "tgl_plan",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "waktu": {
+          "name": "waktu",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product_list": {
+          "name": "product_list",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keterangan": {
+          "name": "keterangan",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_actual": {
+          "name": "tgl_actual",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "waktu_actual": {
+          "name": "waktu_actual",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koor_visit": {
+          "name": "koor_visit",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stt_koor": {
+          "name": "stt_koor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "foto": {
+          "name": "foto",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "foto_link": {
+          "name": "foto_link",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tanda_tangan": {
+          "name": "tanda_tangan",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ttd_link": {
+          "name": "ttd_link",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "s3_upload_log": {
+          "name": "s3_upload_log",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval": {
+          "name": "approval",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_by": {
+          "name": "approval_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_date": {
+          "name": "approval_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_comment": {
+          "name": "approval_comment",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_actual": {
+          "name": "approval_actual",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_actual_by": {
+          "name": "approval_actual_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_actual_date": {
+          "name": "approval_actual_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "approval_actual_comment": {
+          "name": "approval_actual_comment",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "join_visit": {
+          "name": "join_visit",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "join_visit_ff": {
+          "name": "join_visit_ff",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "join_visit_id": {
+          "name": "join_visit_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "name": "note",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_by": {
+          "name": "updated_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "cpa_unique": {
+          "name": "cpa_unique",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "tgl_actual",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id_mcl",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "cpa_lookup_idx": {
+          "name": "cpa_lookup_idx",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id_mcl",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "tgl_actual",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "approval_actual",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "cpa_plan_idx": {
+          "name": "cpa_plan_idx",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "tgl_plan",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "approval",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "cpa_join_window_idx": {
+          "name": "cpa_join_window_idx",
+          "columns": [
+            {
+              "expression": "join_visit",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "updated_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "call_plan_actual_id_peg_data_pegawai_rowid_fk": {
+          "name": "call_plan_actual_id_peg_data_pegawai_rowid_fk",
+          "tableFrom": "call_plan_actual",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "id_peg"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "call_plan_actual_id_mcl_list_dokter_visit_new_ID_fk": {
+          "name": "call_plan_actual_id_mcl_list_dokter_visit_new_ID_fk",
+          "tableFrom": "call_plan_actual",
+          "tableTo": "list_dokter_visit_new",
+          "columnsFrom": [
+            "id_mcl"
+          ],
+          "columnsTo": [
+            "ID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "call_plan_actual_join_visit_id_call_plan_actual_id_fk": {
+          "name": "call_plan_actual_join_visit_id_call_plan_actual_id_fk",
+          "tableFrom": "call_plan_actual",
+          "tableTo": "call_plan_actual",
+          "columnsFrom": [
+            "join_visit_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.visit_tidak_kunjungan": {
+      "name": "visit_tidak_kunjungan",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "periode": {
+          "name": "periode",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "week": {
+          "name": "week",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_peg": {
+          "name": "id_peg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_ff": {
+          "name": "id_ff",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama": {
+          "name": "nama",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tanggal": {
+          "name": "tanggal",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alasan": {
+          "name": "alasan",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keterangan": {
+          "name": "keterangan",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "vtk_peg_tanggal_unique": {
+          "name": "vtk_peg_tanggal_unique",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "tanggal",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "visit_tidak_kunjungan_id_peg_data_pegawai_rowid_fk": {
+          "name": "visit_tidak_kunjungan_id_peg_data_pegawai_rowid_fk",
+          "tableFrom": "visit_tidak_kunjungan",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "id_peg"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.visit_tidak_kunjungan_mr": {
+      "name": "visit_tidak_kunjungan_mr",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "periode": {
+          "name": "periode",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "week": {
+          "name": "week",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_peg": {
+          "name": "id_peg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_ff": {
+          "name": "id_ff",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama": {
+          "name": "nama",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "divisi": {
+          "name": "divisi",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tanggal": {
+          "name": "tanggal",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alasan": {
+          "name": "alasan",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keterangan": {
+          "name": "keterangan",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "vtk_mr_peg_tanggal_unique": {
+          "name": "vtk_mr_peg_tanggal_unique",
+          "columns": [
+            {
+              "expression": "id_peg",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "tanggal",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "visit_tidak_kunjungan_mr_id_peg_data_pegawai_rowid_fk": {
+          "name": "visit_tidak_kunjungan_mr_id_peg_data_pegawai_rowid_fk",
+          "tableFrom": "visit_tidak_kunjungan_mr",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "id_peg"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.media_assets": {
+      "name": "media_assets",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "asset_type": {
+          "name": "asset_type",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "original_name": {
+          "name": "original_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "s3_key": {
+          "name": "s3_key",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar(1000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mime_type": {
+          "name": "mime_type",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "size_bytes": {
+          "name": "size_bytes",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'pending'"
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "is_deleted": {
+          "name": "is_deleted",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "deleted_at": {
+          "name": "deleted_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deleted_by": {
+          "name": "deleted_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "media_assets_created_by_idx": {
+          "name": "media_assets_created_by_idx",
+          "columns": [
+            {
+              "expression": "created_by",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "media_assets_status_idx": {
+          "name": "media_assets_status_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "is_deleted",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "media_assets_type_idx": {
+          "name": "media_assets_type_idx",
+          "columns": [
+            {
+              "expression": "asset_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "is_deleted",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "media_assets_created_by_data_pegawai_rowid_fk": {
+          "name": "media_assets_created_by_data_pegawai_rowid_fk",
+          "tableFrom": "media_assets",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "created_by"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "media_assets_deleted_by_data_pegawai_rowid_fk": {
+          "name": "media_assets_deleted_by_data_pegawai_rowid_fk",
+          "tableFrom": "media_assets",
+          "tableTo": "data_pegawai",
+          "columnsFrom": [
+            "deleted_by"
+          ],
+          "columnsTo": [
+            "rowid"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -20,8 +20,8 @@ export class NotFoundError extends DomainError {
 }
 
 export class ConflictError extends DomainError {
-  constructor(message = 'Resource conflict', details?: unknown) {
-    super({ message, statusCode: 409, code: 'CONFLICT', details });
+  constructor(message = 'Resource conflict', code = 'CONFLICT', details?: unknown) {
+    super({ message, statusCode: 409, code, details });
     this.name = 'ConflictError';
   }
 }
@@ -48,8 +48,15 @@ export class ValidationError extends DomainError {
 }
 
 export class DeadlinePassedError extends DomainError {
-  constructor(message = 'Deadline passed', details?: unknown) {
-    super({ message, statusCode: 409, code: 'DEADLINE_PASSED', details });
+  constructor(message = 'Deadline passed', code = 'DEADLINE_PASSED', details?: unknown) {
+    super({ message, statusCode: 422, code, details });
     this.name = 'DeadlinePassedError';
+  }
+}
+
+export class VersionOutdatedError extends DomainError {
+  constructor(message = 'X-App-Version header missing or app outdated', details?: unknown) {
+    super({ message, statusCode: 426, code: 'VERSION_OUTDATED', details });
+    this.name = 'VersionOutdatedError';
   }
 }

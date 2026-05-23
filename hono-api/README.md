@@ -155,7 +155,31 @@ Idempotent — aman di-run berulang.
 bun run db:reset
 ```
 
-### 7. Verifikasi schema
+### 7. (Opsional) Restore dev DB dari legacy SQL dump
+
+Untuk simulasi data prod — 1044 user real, 53k dokter, 15k struktur, dst.
+File dump ada di `../legacy/db-backup/*.sql` (hasil ekstrak `monitoring_*.sql`).
+
+```bash
+# 1. Opt-in eksplisit (script refuse jalan tanpa ini)
+echo "ALLOW_LEGACY_RESTORE=true" >> .env
+
+# 2. Restore — ~30 detik di mesin dev
+bun run db:restore-legacy
+```
+
+Detail:
+- **Scope**: hanya master tables (13 tabel). Transactional kosong — diisi dari mobile insert.
+- **Password**: hash `$2y$` (PHP/Laravel) di-rewrite jadi `$2b$` (OpenBSD) supaya kompatibel dengan `Bun.password.verify`. Login pakai password prod asli akan work.
+- **Konflik dev seed (id 1–3 = mr01/dm01/rsm01)**: `.onConflictDoNothing()` → dev user menang, jadi `mr01`/`dm01`/`rsm01` tetap bisa login pakai password `password`. User legacy lain (id ≥ 5) ikut terpasang.
+- **Login user prod** (cek `password_view` kolom — di dev mode plaintext password disimpan untuk debugging):
+  ```sql
+  SELECT username, password_view FROM users WHERE id > 3 LIMIT 5;
+  ```
+- **Safety**: script refuse jalan kalau `NODE_ENV=production`, DB name ends with `_prod`/`_test`, atau `ALLOW_LEGACY_RESTORE` tidak diset.
+- **Idempotent**: re-run aman.
+
+### 8. Verifikasi schema
 
 ```bash
 bun run db:studio
@@ -196,6 +220,7 @@ bun run db:studio
 | `bun run db:check` | Validasi migration files konsisten |
 | `bun run db:seed` | Seed master tables (idempotent — pakai `onConflictDoNothing`) |
 | `bun run db:reset` | Drop + push schema + seed ulang (dev only) |
+| `bun run db:restore-legacy` | Restore master dari `../legacy/db-backup/*.sql` (butuh `ALLOW_LEGACY_RESTORE=true`) |
 
 ---
 

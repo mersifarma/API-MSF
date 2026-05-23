@@ -14,7 +14,17 @@
       "Bash(cat 'd:\\\\API-MSF\\\\hono-api\\\\.env.test' 2>nul || echo \"FILE NOT FOUND\")",
       "Bash(psql -h localhost -U msf -lA)",
       "Bash(findstr msf_test)",
-      "Bash(bun -e \"const postgres = \\(await import\\('postgres'\\)\\).default; const c = postgres\\('postgres://msf:msf@localhost:5432/postgres', { max: 1 }\\); const rows = await c\\\\`SELECT datname FROM pg_database WHERE datname LIKE 'msf%' ORDER BY datname\\\\`; console.log\\('DBs:', rows.map\\(r => r.datname\\)\\); await c.end\\(\\);\")"
+      "Bash(bun -e \"const postgres = \\(await import\\('postgres'\\)\\).default; const c = postgres\\('postgres://msf:msf@localhost:5432/postgres', { max: 1 }\\); const rows = await c\\\\`SELECT datname FROM pg_database WHERE datname LIKE 'msf%' ORDER BY datname\\\\`; console.log\\('DBs:', rows.map\\(r => r.datname\\)\\); await c.end\\(\\);\")",
+      "Bash(claude mcp *)",
+      "Bash(Get-ChildItem -Path \"d:\\\\API-MSF\\\\mobile\\\\app\" -Recurse -Filter \"*.tsx\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "Bash(Get-ChildItem -Path \"d:\\\\API-MSF\\\\mobile\" -Depth 2 -Directory)",
+      "Read(//mnt/d/API-MSF/mobile/**)",
+      "Bash(dir \"d:\\\\API-MSF\\\\mobile\\\\app\")",
+      "Bash(dir d:\\\\API-MSF\\\\mobile\\\\app\\\\*.tsx)",
+      "Bash(Get-ChildItem -Path \"d:\\\\API-MSF\\\\hono-api\\\\src\\\\routes\\\\\" -Filter \"*.ts\" | Select-Object Name)",
+      "Bash(Get-ChildItem -Path \"d:\\\\API-MSF\\\\legacy\\\\app\\\\Http\\\\Controllers\\\\\" -Filter \"*Controller.php\" | Select-Object Name | head -10)"
     ],
     "additionalDirectories": [
       "d:\\API-MSF"

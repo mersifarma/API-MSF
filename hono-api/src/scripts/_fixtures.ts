@@ -16,8 +16,7 @@
  * Hash di bawah ini di-generate via Bun.password.hash('password', { algorithm: 'bcrypt', cost: 10 }).
  */
 
-export const DEV_PASSWORD_HASH =
-  '$2b$10$co7WTyfhJlBheRqGjO75huJWkyFgDGJUX02kLzz4ytreH7xb2nrqu';
+export const DEV_PASSWORD_HASH = '$2b$10$co7WTyfhJlBheRqGjO75huJWkyFgDGJUX02kLzz4ytreH7xb2nrqu';
 
 export const seed_users = [
   {
