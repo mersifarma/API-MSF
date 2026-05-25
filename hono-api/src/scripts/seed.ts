@@ -31,7 +31,7 @@ import {
   call_target_class,
   data_product,
   data_spec_dr,
-} from '../db/schema/master';
+} from '../db/schema';
 import {
   seed_users,
   seed_data_pegawai,

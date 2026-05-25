@@ -1,0 +1,25 @@
+import { pgTable, integer, varchar, date } from 'drizzle-orm/pg-core';
+
+export const data_pegawai = pgTable('data_pegawai', {
+  rowid: integer('rowid').primaryKey().generatedByDefaultAsIdentity(),
+  id: varchar('id', { length: 10 }).notNull(),
+  nik: varchar('nik', { length: 20 }),
+  nama: varchar('nama', { length: 200 }).notNull(),
+  jabatan: varchar('jabatan', { length: 50 }).notNull(),
+  divisi: varchar('divisi', { length: 30 }),
+  rayon: varchar('rayon', { length: 200 }),
+  rayon_dm: varchar('rayon_dm', { length: 150 }),
+  region: varchar('region', { length: 50 }),
+  homebase: varchar('homebase', { length: 50 }),
+  lokasi: varchar('lokasi', { length: 30 }),
+  lokasi_absen: varchar('lokasi_absen', { length: 30 }),
+  telepon: varchar('telepon', { length: 30 }),
+  email: varchar('email', { length: 250 }),
+  status: varchar('status', { length: 20 }),
+  keterangan: varchar('keterangan', { length: 200 }),
+  tgl_masuk: date('tgl_masuk'),
+  tgl_keluar: date('tgl_keluar'),
+  tanda_tangan: varchar('tanda_tangan', { length: 50 }),
+  id_finger: integer('id_finger'),
+  id_user: integer('id_user'),
+});

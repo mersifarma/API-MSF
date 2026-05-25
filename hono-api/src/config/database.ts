@@ -3,17 +3,15 @@ import postgres from 'postgres';
 import * as schema from '../db/schema';
 import { env } from './env';
 
-const queryClient = postgres(env.DATABASE_URL, {
+export const sql = postgres(env.DATABASE_URL, {
   max: 10,
   idle_timeout: 20,
   connect_timeout: 10,
 });
 
-export const db = drizzle(queryClient, { schema });
+export const db = drizzle(sql, { schema });
 export type DB = typeof db;
 
-// Dipakai oleh tests/setup.ts untuk menutup pool sebelum DROP DATABASE.
-// Di runtime normal (server) tidak perlu dipanggil — postgres.js auto-cleans on exit.
 export async function closeDb() {
-  await queryClient.end({ timeout: 5 });
+  await sql.end({ timeout: 5 });
 }

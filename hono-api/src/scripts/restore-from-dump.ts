@@ -18,7 +18,7 @@
 
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { getTableColumns, type Column } from 'drizzle-orm';
+import { getTableColumns, sql, type Column } from 'drizzle-orm';
 import { type PgTable } from 'drizzle-orm/pg-core';
 import { db } from '../config/database';
 import { env } from '../config/env';
@@ -36,9 +36,18 @@ import {
   list_dokter_visit_new,
   struktur,
   users,
-} from '../db/schema/master';
-import { resetSequence } from '../utils/db';
+} from '../db/schema';
 import { parseDump, type Row } from './dump-parser';
+
+async function resetSequence(table: string, column: string) {
+  await db.execute(sql`
+    SELECT setval(
+      pg_get_serial_sequence(${table}, ${column}),
+      COALESCE((SELECT MAX(${sql.raw(`"${column}"`)}) FROM ${sql.raw(`"${table}"`)}), 1),
+      true
+    )
+  `);
+}
 
 const BATCH_SIZE = 500;
 
